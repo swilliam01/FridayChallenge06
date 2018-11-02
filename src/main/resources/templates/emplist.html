@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:word-spacing="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:insert="base :: header"></th:block>
+    <style>p.indent{ padding-left: 1.8em }</style>
+</head>
+<body>
+
+<div th:replace="base :: navlinks"></div>
+
+<div class="container">
+    <div class="row">
+<div class="col-sm-3">
+    <h4>Employee Name</h4>
+    <br>
+<p th:each="employee : ${employees}">
+    <span th:text="${employee.empName}"></span>
+</p>
+</div>
+<div class="col-sm-3">
+    <h4>Job Title</h4>
+    <br>
+    <p th:each="employee : ${employees}">
+<span th:text="${employee.job}"></span>
+    </p>
+</div>
+<div class="col-sm-3">
+    <h4>Department</h4>
+    <br>
+<p th:each="employee : ${employees}">
+    <span th:text="${employee.department.name}"></span>
+</p>
+</div>
+<div class="col-sm-3">
+    <h4>Actions</h4>
+    <br>
+    <p th:each="employee : ${employees}">
+    <a th:href="@{/update/{id}(id=${employee.id})}">Update</a> -
+    <a th:href="@{/detail/{id}(id=${employee.id})}">Details</a> -
+    <a th:href="@{/delete/{id}(id=${employee.id})}">Delete</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

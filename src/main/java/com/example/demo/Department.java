@@ -4,17 +4,16 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Category {
+public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
     private String name;
 
-    @OneToMany(mappedBy = "category",
+    @OneToMany(mappedBy = "department",
             fetch = FetchType.EAGER,
             cascade = CascadeType.REMOVE)
-    private Set<Car> cars;
+    private Set<Employee> employees;
 
     public long getId() {
         return id;
@@ -32,11 +31,11 @@ public class Category {
         this.name = name;
     }
 
-    public Set<Car> getCars() {
-        return cars;
+    public Set<Employee> getEmployees() {
+        return employees;
     }
 
-    public void setCars(Set<Car> cars) {
-        this.cars = cars;
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 }

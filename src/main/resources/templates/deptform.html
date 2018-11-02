@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Department Form</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+<h2>Add New Department</h2>
+    <form action="#"
+          th:action="@{/addDept}"
+          th:object="${department}"
+          method="post">
+        <input type="hidden" th:field="*{id}"/>
+
+        Department Name: <input type="text" name="name" th:field="*{name}"/><br/><br/>
+
+        <input type="submit" value="Submit"/>
+    </form>
+
+</body>
+</html>

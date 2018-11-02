@@ -6,6 +6,13 @@
     <th:block th:insert="base :: header"></th:block>
 </head>
 <body>
+
 <div th:replace="base :: navlinks"></div>
+<h2>Departments List</h2>
+
+<div th:each="department : ${departments}">
+    <span th:text="${department.name}"></span>
+</div>
+
 </body>
 </html>

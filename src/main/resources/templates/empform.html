@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+
+<form action="#"
+      th:action="@{/addEmp}"
+      th:object="${employee}"
+      method="post">
+
+    <input type="hidden" th:field="*{id}"/>
+
+    Employee Name:<br>
+    <input type="text" name="empName" th:field="*{empName}"/><br/>
+   Job Title:<br>
+    </ber> <input type="text" name="job" th:field="*{job}"/><br/>
+   Department:<br>
+    <select name="department" th:field="*{department}">
+        <option th:each="department : ${departments}"
+                th:value="${department.id}"
+                th:text="${department.name}"/>
+    </select><br/><br/>
+
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>

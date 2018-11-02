@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+<div th:fragment="navlinks"></div>
+<a href="/addDept"> Add Department</a> -
+<a href="/deptlist">List Departments</a> -
+<a href="/addEmp">Add Employee</a> -
+<a href="/emplist">List Employees</a>
+
+<h2>Employee Detail</h2>
+
+<span th:text="${employee.empName}"></span><br/>
+<span th:text="${employee.job}"></span><br/>
+<span th:text="${employee.department.name}"></span>
+
+</body>
+</html>
